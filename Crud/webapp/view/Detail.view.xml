@@ -1,0 +1,151 @@
+<mvc:View
+	controllerName="sap.ui.core.tutorial.odatav4.controller.Detail"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:m="sap.m"
+	xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page
+		title="Registration" showNavButton="true" navButtonPress=".onNavBack">
+		<ObjectHeader title="Create New Customer" />
+
+		<f:SimpleForm id="SimpleFormChange472" maxContainerCols="2"
+			editable="true" layout="ResponsiveGridLayout" labelSpanL="3"
+			labelSpanM="3" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2"
+			adjustLabelSpan="false" class="editableForm">
+			<f:layoutData>
+				<l:GridData span="L7 M7 S7" />
+			</f:layoutData>
+			<f:content>
+				<m:Label text="Customer Id" />
+				<m:Input id="customerId" value="">
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</m:Input>
+				<m:Label text="First Name" />
+				<m:Input id="firstName" value="">
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</m:Input>
+				<m:Label text="Last Name" />
+				<m:Input id="lastName" value="">
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</m:Input>
+				<m:Label text="Email Id" />
+				<m:Input id="emailId" value="">
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</m:Input>
+				<m:Label text="DOB" />
+				<m:DatePicker id="DP4"
+					class="sapUiSmallMarginBottom">
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</m:DatePicker>
+
+				<m:Label text="Sex" />
+				<m:RadioButtonGroup
+					id="radioGroup"
+					columns="2"
+					selectedIndex="0"
+					value="{radio}">
+					<m:buttons id="sex">
+						<m:RadioButton text="Male" />
+						<m:RadioButton text="Female" />
+					</m:buttons>
+				</m:RadioButtonGroup>
+
+				<m:Label text="Mobile Number" />
+				<m:Input id="mobileNumber" value="">
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</m:Input>
+
+				<m:Label text="Years Of Experience" />
+				<ComboBox id="box0">
+					<items>
+						<core:Item key="item-1-key"
+							text="1" id="item0" />
+						<core:Item key="item-2-key"
+							text="2" id="item1" />
+						<core:Item key="item-2-key"
+							text="3" id="item3" />
+						<core:Item key="item-2-key"
+							text="4" id="item4" />
+					</items>
+
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</ComboBox>
+
+				<m:Label text="Qualification" />
+				<m:Input id="qualification" value="">
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</m:Input>
+
+				<m:Label text="Passed Out" />
+				<ComboBox id="box1">
+					<items>
+						<core:Item key="item-1-key"
+							text="1996" id="item10" />
+						<core:Item key="item-2-key"
+							text="1997" id="item11" />
+						<core:Item key="item-2-key"
+							text="1998" id="item13" />
+						<core:Item key="item-2-key"
+							text="1999" id="item14" />
+					</items>
+
+					<m:layoutData>
+						<l:GridData span="L2 M2 S4" />
+					</m:layoutData>
+				</ComboBox>
+
+				<m:Label text="Language Known" />
+				<CheckBox text="English">
+					<m:layoutData>
+						<l:GridData span="L1 M2 S1" />
+					</m:layoutData>
+				</CheckBox>
+				<CheckBox text="Tamil">
+					<m:layoutData>
+						<l:GridData span="L1 M2 S4" />
+					</m:layoutData>
+				</CheckBox>
+
+
+				<m:Label text="Queries" />
+
+				<TextArea
+					placeholder="Enter text"
+					readonly="true"
+					ariaLabelledBy="TextAreaNoEditLabel">
+					<m:layoutData>
+						<l:GridData span="L5 M3 S6" />
+					</m:layoutData>
+				</TextArea>
+
+
+			</f:content>
+		</f:SimpleForm>
+		<footer>
+			<toolbar visible="true">
+				<ToolbarSpacer />
+				<Button id="saveRegisterUsers" text="Save" press=".onSaveCustomer"	>
+				</Button>
+			</toolbar>
+		</footer>
+	</Page>
+</mvc:View>

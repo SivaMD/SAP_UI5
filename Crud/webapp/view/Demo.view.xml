@@ -1,0 +1,42 @@
+<mvc:View
+	controllerName="sap.ui.core.tutorial.odatav4.controller.App"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+
+    <List
+    id="invoiceList"
+    mode="SingleSelectLeft"
+
+    headerText="{i18n>invoiceListTitle}"
+    class="sapUiResponsiveMargin"
+    width="auto"
+    items="{
+        path : '/People'
+     }">
+    <headerToolbar>
+        <Toolbar>
+            <Title text="{i18n>invoiceListTitle}" />
+            <ToolbarSpacer />
+            <SearchField
+                width="50%"
+                search=".onFilterInvoices" />
+            <Button
+                id="deleteUserButton"
+                icon="sap-icon://delete"
+                tooltip="{i18n>deleteButtonText}"
+                press=".onDelete"/>
+        </Toolbar>
+    </headerToolbar>
+    <items>
+        <ObjectListItem 
+            title="{people>FirstName}"
+           
+            press=".onPress" >
+            <attributes>
+                <ObjectAttribute mode="SingleSelectLeft"/>
+            </attributes>
+        </ObjectListItem>
+    </items>
+</List>
+</mvc:View>

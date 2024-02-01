@@ -1,0 +1,114 @@
+<mvc:View
+    controllerName="sap.ui.core.tutorial.odatav4.controller.Detail"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <Page title="{i18n>peoplePageTitle}" showNavButton="true" navButtonPress=".onNavBack">
+        <content>
+            <Table
+                id="customerList"
+                growing="true"
+                growingThreshold="10"
+                items="{dataModel>/}"
+                mode="SingleSelectLeft">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer />
+                            <!-- <ComboBox
+                                id="statusFilterComboBox"
+                                width="20%"
+                                items="{/People}"
+                                selectedKey="{appView>/selectedStatusFilter}"
+                                placeholder="Customer Name"
+                                enabled="{= !${appView>/hasUIChanges}}"
+                                change=".onStatusFilterChange">
+                                <core:ListItem
+                                    key="{= ${path:'FirstName'} + ' ' + ${path:'LastName'}}"
+                                    text="{= ${path:'FirstName'} + ' ' + ${path:'LastName'}}" />
+                            </ComboBox> -->
+
+                            <SearchField
+                                id="searchField"
+                                width="20%"
+                                placeholder="FirstName"
+                                enabled="{= !${appView>/hasUIChanges}}"
+                                search=".onSearch" />
+                            <SearchField
+                                id="firstNameSearchField"
+                                width="20%"
+                                placeholder="LastName"
+                                enabled="{= !${appView>/hasUIChanges}}"
+                                liveChange=".onFirstNameSearch" />
+                            <Button
+                                id="deleteUserButton"
+                                icon="sap-icon://delete"
+                                tooltip="{i18n>deleteButtonText}"
+                                press=".onDelete">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                </layoutData>
+                            </Button>
+
+                            <Button
+                                id="addUserButtons"
+                                icon="sap-icon://add"
+                                tooltip="{i18n>createButtonText}"
+                                press=".onCreateCustomer">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                </layoutData>
+                            </Button>
+
+                            <Button
+                                id="refreshUsersButton"
+                                icon="sap-icon://refresh"
+                                tooltip="{i18n>refreshButtonText}"
+                                enabled="{= !${appView>/hasUIChanges}}"
+                                press=".onRefresh" />
+
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="customerIdColumn">
+                        <Text text="{i18n>customerIdLabelText}" />
+                    </Column>
+                    <Column id="firstNameColumn">
+                        <Text text="{i18n>firstNameLabelText}" />
+                    </Column>
+                    <Column id="lastNameColumn">
+                        <Text text="{i18n>lastNameLabelText}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Navigation" press=".onPress">
+                        <cells>
+                            <Text text="{dataModel>customerId}" />
+                            <Text text="{dataModel>firstName}" />  
+                            <Text text="{dataModel>lastName}" />  
+                        </cells>
+                    </ColumnListItem>
+
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <Toolbar visible="{appView>/hasUIChanges}">
+                <ToolbarSpacer />
+                <Button
+                    id="saveButton"
+                    type="Emphasized"
+                    text="{i18n>saveButtonText}"
+                    enabled="{= ${message>/}.length === 0 &amp;&amp; ${appView>/usernameEmpty} === false }"
+                    press=".onSave" />
+                <Button
+                    id="doneButton"
+                    text="{i18n>cancelButtonText}"
+                    press=".onResetChanges" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
